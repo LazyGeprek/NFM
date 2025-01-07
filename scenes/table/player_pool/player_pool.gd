@@ -5,7 +5,7 @@ var tile_button = preload("res://scenes/table/tile/tile.tscn")
 @onready var grid = $MarginContainer/GridContainer
 
 func _ready():
-	TableHandler.phand_discarded.connect(_render_player_pool)
+	TableHandler.phand_changed.connect(_render_player_pool)
 
 func _render_player_pool():
 	for child in grid.get_children():

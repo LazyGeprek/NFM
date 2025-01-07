@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://dcq80vqmdhvao"]
+[gd_scene load_steps=7 format=3 uid="uid://dcq80vqmdhvao"]
 
 [ext_resource type="Script" path="res://scenes/table/table.gd" id="1_ps16n"]
-[ext_resource type="Script" path="res://scenes/table/handler/table_handler.gd" id="2_oh4o4"]
 [ext_resource type="PackedScene" uid="uid://du07kyhsnwyqk" path="res://scenes/table/player_hand/player_hand.tscn" id="3_0cv7u"]
 [ext_resource type="PackedScene" uid="uid://tvqr6wjihred" path="res://scenes/table/player_pool/player_pool.tscn" id="4_51o5i"]
+[ext_resource type="PackedScene" uid="uid://cibc2cgp10xad" path="res://scenes/table/cpu_hands/cpu_1_hand.tscn" id="4_plvkd"]
+[ext_resource type="PackedScene" uid="uid://pgu6ih6202jd" path="res://scenes/table/cpu_pools/cpu_1_pool.tscn" id="5_soitx"]
+[ext_resource type="PackedScene" uid="uid://diyt5w3j8jx2e" path="res://scenes/table/tile/tile.tscn" id="6_trhwp"]
 
 [node name="Table" type="Node"]
 script = ExtResource("1_ps16n")
@@ -15,11 +17,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.533761, 0.702593, 0.843224, 1)
-
-[node name="Handler" type="Node" parent="."]
-
-[node name="TabeHandler" type="Node" parent="Handler"]
-script = ExtResource("2_oh4o4")
 
 [node name="PlayerHand" parent="." instance=ExtResource("3_0cv7u")]
 anchors_preset = -1
@@ -36,10 +33,36 @@ grow_horizontal = 1
 [node name="PlayerPool" parent="." instance=ExtResource("4_51o5i")]
 anchors_preset = -1
 anchor_left = 0.361
-anchor_top = 0.692
-anchor_right = 0.636
-anchor_bottom = 0.835
+anchor_top = 0.75
+anchor_right = 0.639
+anchor_bottom = 0.829
 offset_left = 0.0399933
-offset_top = -0.160004
-offset_right = 0.0399933
-offset_bottom = 0.199982
+offset_top = -3.05176e-05
+offset_right = -0.0400238
+offset_bottom = 2.07999
+
+[node name="CPU1Hand" parent="." instance=ExtResource("4_plvkd")]
+anchors_preset = -1
+anchor_left = 0.889
+anchor_top = 0.694
+anchor_right = 0.958
+anchor_bottom = 0.746
+offset_left = -0.0400085
+offset_top = -0.119995
+offset_right = 0.119965
+offset_bottom = -0.0800171
+
+[node name="CPU1Pool" parent="." instance=ExtResource("5_soitx")]
+anchors_preset = -1
+anchor_left = 0.689
+anchor_top = 0.469
+anchor_right = 0.8
+anchor_bottom = 0.552
+offset_left = -0.0400085
+offset_top = -0.12001
+offset_right = 0.0
+offset_bottom = 0.039978
+
+[node name="Tile" parent="CPU1Pool" instance=ExtResource("6_trhwp")]
+layout_mode = 0
+anchors_preset = 0

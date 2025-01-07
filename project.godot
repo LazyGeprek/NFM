@@ -24,6 +24,7 @@ TableHandler="*res://scenes/table/handler/table_handler.gd"
 window/size/viewport_width=360
 window/size/viewport_height=480
 window/size/mode=3
+window/size/initial_position_type=0
 window/size/window_width_override=360
 window/size/window_height_override=640
 window/stretch/mode="viewport"
@@ -37,3 +38,4 @@ project/assembly_name="NFM"
 [rendering]
 
 renderer/rendering_method="mobile"
+textures/vram_compression/import_etc2_astc=true
