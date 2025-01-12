@@ -1,11 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://dcq80vqmdhvao"]
+[gd_scene load_steps=9 format=3 uid="uid://dcq80vqmdhvao"]
 
 [ext_resource type="Script" path="res://scenes/table/table.gd" id="1_ps16n"]
 [ext_resource type="PackedScene" uid="uid://du07kyhsnwyqk" path="res://scenes/table/player_hand/player_hand.tscn" id="3_0cv7u"]
 [ext_resource type="PackedScene" uid="uid://tvqr6wjihred" path="res://scenes/table/player_pool/player_pool.tscn" id="4_51o5i"]
 [ext_resource type="PackedScene" uid="uid://cibc2cgp10xad" path="res://scenes/table/cpu_hands/cpu_1_hand.tscn" id="4_plvkd"]
 [ext_resource type="PackedScene" uid="uid://pgu6ih6202jd" path="res://scenes/table/cpu_pools/cpu_1_pool.tscn" id="5_soitx"]
-[ext_resource type="PackedScene" uid="uid://diyt5w3j8jx2e" path="res://scenes/table/tile/tile.tscn" id="6_trhwp"]
+[ext_resource type="PackedScene" uid="uid://cljw1srwomajg" path="res://scenes/table/cpu_hands/cpu_2_hand.tscn" id="6_onhnj"]
+[ext_resource type="PackedScene" uid="uid://u5s3e4lewd16" path="res://scenes/table/cpu_pools/cpu_2_pool.tscn" id="7_62i71"]
+[ext_resource type="Script" path="res://scenes/table/button.gd" id="8_8vhky"]
 
 [node name="Table" type="Node"]
 script = ExtResource("1_ps16n")
@@ -17,6 +19,50 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.533761, 0.702593, 0.843224, 1)
+
+[node name="CPU2Hand" parent="." instance=ExtResource("6_onhnj")]
+anchors_preset = -1
+anchor_left = 0.681
+anchor_top = 0.019
+anchor_right = 0.75
+anchor_bottom = 0.071
+offset_left = -0.160019
+offset_top = -0.120001
+offset_right = -3.05176e-05
+offset_bottom = -0.0800018
+
+[node name="CPU2Pool" parent="." instance=ExtResource("7_62i71")]
+anchors_preset = -1
+anchor_left = 0.422
+anchor_top = 0.131
+anchor_right = 0.533
+anchor_bottom = 0.215
+offset_left = 0.0799866
+offset_top = 0.119995
+offset_right = 0.11998
+offset_bottom = -0.200005
+
+[node name="CPU1Hand" parent="." instance=ExtResource("4_plvkd")]
+anchors_preset = -1
+anchor_left = 0.889
+anchor_top = 0.694
+anchor_right = 0.958
+anchor_bottom = 0.746
+offset_left = -0.0400085
+offset_top = -0.119995
+offset_right = 0.119965
+offset_bottom = -0.0800171
+
+[node name="CPU1Pool" parent="." instance=ExtResource("5_soitx")]
+anchors_preset = -1
+anchor_left = 0.689
+anchor_top = 0.469
+anchor_right = 0.8
+anchor_bottom = 0.552
+offset_left = -0.0400085
+offset_top = -0.12001
+offset_right = 0.0
+offset_bottom = 0.039978
 
 [node name="PlayerHand" parent="." instance=ExtResource("3_0cv7u")]
 anchors_preset = -1
@@ -41,28 +87,17 @@ offset_top = -3.05176e-05
 offset_right = -0.0400238
 offset_bottom = 2.07999
 
-[node name="CPU1Hand" parent="." instance=ExtResource("4_plvkd")]
-anchors_preset = -1
-anchor_left = 0.889
-anchor_top = 0.694
-anchor_right = 0.958
-anchor_bottom = 0.746
-offset_left = -0.0400085
-offset_top = -0.119995
-offset_right = 0.119965
-offset_bottom = -0.0800171
-
-[node name="CPU1Pool" parent="." instance=ExtResource("5_soitx")]
-anchors_preset = -1
-anchor_left = 0.689
-anchor_top = 0.469
-anchor_right = 0.8
-anchor_bottom = 0.552
-offset_left = -0.0400085
-offset_top = -0.12001
-offset_right = 0.0
-offset_bottom = 0.039978
-
-[node name="Tile" parent="CPU1Pool" instance=ExtResource("6_trhwp")]
-layout_mode = 0
-anchors_preset = 0
+[node name="Button" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "START"
+script = ExtResource("8_8vhky")

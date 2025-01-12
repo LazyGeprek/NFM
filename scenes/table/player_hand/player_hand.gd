@@ -5,10 +5,15 @@ var tile_button = preload("res://scenes/table/tile/tile.tscn")
 
 func _ready():
 	_render_hand()
+	TableHandler.phand_changed.connect(_render_hand)
 
 func _render_hand():
 	var player_hand_encoded = Table.access.tile.tile_encode(player_hand)
+	var x =  $MarginContainer/HBoxContainer.get_children()
+	for n in x:
+		n.queue_free()
 	for i in range(player_hand_encoded.size()):
+
 		var code = player_hand_encoded[i]  # Encoded
 		var hex_value = player_hand[i]  # Hexadecimal 
 		
